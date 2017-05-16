@@ -106,7 +106,7 @@ function Read-HostChoice {
             if($AllowMultipleAnswers) {
                 $ResponseParts = $Response.split(',').Trim() | Sort-Object | Get-Unique
 
-                ForEach-Object {
+                $ResponseParts | ForEach-Object {
                     $ItemList | Where-Object Index -eq $_ | Select-Object -ExpandProperty Object
                 }
             } else {
