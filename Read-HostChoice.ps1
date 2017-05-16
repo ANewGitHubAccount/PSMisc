@@ -82,21 +82,21 @@ function Read-HostChoice {
         }
 
         # Outputting itemlist to host
-        while ($Output -eq $null) {
-            foreach ($Item in $ItemList) {
-                Write-Host -NoNewline "["
-                Write-Host -NoNewline -ForegroundColor Yellow $Item.Index
-                Write-Host -NoNewline "] "
+        foreach ($Item in $ItemList) {
+            Write-Host -NoNewline "["
+            Write-Host -NoNewline -ForegroundColor Yellow $Item.Index
+            Write-Host -NoNewline "] "
 
-                if($DisplayAttribute) {
-                    Write-Host $Item.Name
-                } else {
-                    Write-Host "$($Item.Object)"
-                }
+            if($DisplayAttribute) {
+                Write-Host $Item.Name
+            } else {
+                Write-Host "$($Item.Object)"
             }
+        }
 
-            Write-Host ""
+        Write-Host ""
 
+        while ($Output -eq $null) {
             # Waiting for response
             Write-Host -NoNewline "$Message "
 
