@@ -13,7 +13,7 @@
   Read-HostChoice $UserAccounts | Enable-ADUser
 .PARAMETER InputObject
   The objects to decide from.
-.PARAMETER DisplayName
+.PARAMETER DisplayAttribute
   The attribute that is shown as representing text for each object.
 .PARAMETER Message
   The text that is shown to the host when expecting an answer.
@@ -21,6 +21,7 @@
   Allows multiple comma separated answers.
 #>
 function Read-HostChoice {
+    [CmdletBinding()]
     param(
         [Parameter(Position=0,
                    Mandatory=$true,
